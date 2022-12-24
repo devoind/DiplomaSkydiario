@@ -78,14 +78,14 @@ class GoalCategoryCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = GoalCategory
-        read_only_fields = ['id', 'created', 'updated', 'user', 'is_deleted', 'board']
+        read_only_fields = ['id', 'created', 'updated', 'user', 'is_deleted']
         fields = '__all__'
 
     def validate_board(self, value):
         if value.is_deleted:
             raise serializers.ValidationError("not allowed for deleted board")
         allowed = BoardParticipant.objects.filter(
-            board=value,
+            board=value.id,
             role__in=[BoardParticipant.Role.owner, BoardParticipant.Role.writer],
             user=self.context["request"].user,
         ).exists()
