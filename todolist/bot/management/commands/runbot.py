@@ -122,7 +122,7 @@ class Command(BaseCommand):
             chat_id=message.chat.id,
             text=f"You're not verified.\n"
                  f'Your verification code:   {tg_user.verification_code}\n'
-                 f'Enter this code into corresponding field on the http://sprotsenko.ga/'
+                 f'Enter this code into corresponding field on the http://skydiario.ml/'
         )
 
     def operation_handler(self, message, tg_user):

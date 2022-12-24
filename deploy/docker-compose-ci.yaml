@@ -36,7 +36,7 @@ services:
       - frontend_network
 
   bot:
-    image: $DOCKER_USERNAME/$API_NAME:latest
+    image: $DOCKER_USERNAME/$API_NAME:master
     volumes:
       - ./.env:/todolist_code/.env
     depends_on:
@@ -50,7 +50,7 @@ services:
       - backend_network
 
   api:
-    image: $DOCKER_USERNAME/$API_NAME:latest
+    image: $DOCKER_USERNAME/$API_NAME:master
     volumes:
       - ./.env:/todolist_code/.env
       - ./static/:/todolist_code/todolist/static/
